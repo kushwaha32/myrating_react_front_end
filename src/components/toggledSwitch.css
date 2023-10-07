@@ -1,0 +1,59 @@
+.toggle-public {
+  width: 98px;
+  background-color: #e9fee0;
+  height: 32px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: 0.20000000298023224px solid #7070707a;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.toggle-public.toggle-private {
+  background-color: #dddddd;
+}
+.toggle-text {
+  text-transform: capitalize;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 16px;
+  font-size: 12px;
+  color: #010221;
+  cursor: pointer;
+}
+.toggle-private > .toggle-text {
+  right: 22px;
+  left: unset;
+}
+.notch {
+  position: absolute;
+  left: 70%;
+  top: 50.1%;
+  transform: translateY(-50%);
+  width: 26.5px;
+  height: 26.5px;
+  border-radius: 50%;
+  background-color: #1592e6;
+  transition: left 0.25s ease-in-out;
+}
+
+.toggle-private > .notch {
+  background-color: #707070;
+  left: 2%;
+}
+
+@media only screen and (max-width: 500px) {
+  .toggle-public {
+    width: 86px;
+    height: 30px;
+  }
+  .toggle-text {
+    font-size: 11px;
+  }
+  .notch {
+    left: 67.5%;
+  }
+}

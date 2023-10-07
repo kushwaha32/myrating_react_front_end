@@ -1,0 +1,84 @@
+.user-privacy-main {
+  margin: 0 30px;
+}
+
+.user-privacy-main > h1 {
+  font-size: 19px;
+  margin-top: 27px;
+}
+
+.user-privacy-main-a {
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #edf6ff;
+  padding: 9px 10px;
+  border-radius: 7px;
+  margin-bottom: 8px;
+}
+.user-privacy-main-a p {
+  margin: 0 !important;
+  font-size: 16px;
+}
+.notch.notch-privacy {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  width: 44.5px;
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
+  line-height: 26.5px;
+  background: #7aa8fb;
+  left: 40%;
+}
+.toggle-public.toggle-privacy {
+  width: 75px;
+  background-color: #dddddd;
+  height: 28px;
+}
+.toggle-privacy.toggle-private .notch {
+  left: 1%;
+}
+.pro-privacy input {
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+  .user-privacy-main {
+    margin: 0 16px;
+  }
+  .user-privacy-main-a p {
+    font-size: 14px;
+    text-align: justify;
+    width: 78%;
+  }
+  .toggle-public.toggle-privacy {
+    width: 60px;
+    height: 26px;
+  }
+  .notch.notch-privacy {
+    width: 35.5px;
+    font-size: 14px;
+    line-height: 24px;
+    left: 40%;
+    height: 25px;
+  }
+  .btn-sm-pri {
+    font-size: 21px !important;
+  }
+  .user-privacy-main-a {
+    margin-top: 15px;
+  }
+  .pro-privacy {
+    display: -ms-inline-grid;
+    display: -moz-inline-grid;
+    display: inline-grid;
+  }
+}

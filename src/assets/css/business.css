@@ -1,0 +1,203 @@
+.business .product-d-menu-a {
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.business .dots {
+  width: 25px;
+  position: absolute;
+  right: 0;
+  top: 19px;
+}
+.business .product-d-menu-aa-a {
+  margin-right: 17px;
+}
+.business .product-d-menu-aa-a > img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  opacity: 1;
+}
+.business .product-d-menu-aa-ba {
+  margin-top: 7px;
+  font-size: 15px;
+  text-align: left;
+}
+.business .user-menu-a {
+  display: block;
+  font-size: 13px;
+  text-align: left;
+}
+.business .product-d-menu-aa {
+  display: flex;
+}
+.business .addProfile {
+  margin-bottom: 19px;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 5px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0px 3px 6px #0000003d;
+  border: 0.20000000298023224px solid #7070706b;
+  color: #010221;
+  letter-spacing: 0.5px;
+}
+
+.business .plus {
+  width: 14px;
+  margin-left: 12px;
+}
+
+.historical-monuments {
+  padding: 22px 24px;
+}
+.historical-monuments-a {
+  background: var(--primary-text);
+  color: var(--yellow);
+  font-size: 17px;
+  border-radius: 19px;
+  padding: 13px 23px;
+  margin: 0;
+  letter-spacing: 0.7px;
+}
+
+.historical-monuments-b {
+  box-shadow: 0px 3px 6px #00000029;
+  border: 0.20000000298023224px solid #70707057;
+  border-radius: 21px;
+  opacity: 1;
+  padding: 9px 12px;
+  margin: 13px 0;
+  position: relative;
+}
+
+.historical-monuments-ba {
+  width: 69px;
+  display: block;
+  height: 69px;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border-radius: 50%;
+  border: 1px solid #707070;
+}
+
+.historical-monuments-bb {
+  margin-left: 12px;
+}
+.historical-monuments-bb-a {
+  font-size: 17px;
+  margin-bottom: 6px;
+  color: #000000;
+  transition: all 0.2s ease-in;
+}
+.historical-monuments-bb-a:hover {
+  color: #0d6efd;
+}
+.historical-monuments-bb-b {
+  font-size: 13px;
+  font-weight: normal;
+  margin-bottom: 3px;
+  color: #6e6e73;
+}
+.historical-monuments-bb-c {
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+.historical-monuments-bb-ca {
+  display: flex;
+  align-items: center;
+  margin-right: 21px;
+}
+
+.historical-monuments-bb-ca img {
+  width: 17px;
+  margin-right: 9px;
+}
+.historical-monuments-bb-cb img {
+  width: 19px;
+}
+.historical-monuments-rating {
+  position: relative;
+  top: 2px;
+  font-size: 15px;
+  color: #000;
+}
+.historical-monuments-likes {
+  position: relative;
+  top: 2px;
+  font-size: 15px;
+  color: #000;
+}
+
+.edit-product-monument {
+  display: flex;
+  color: #000;
+  font-size: 13px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  right: 26px;
+  align-items: center;
+}
+
+.edit-product-monument img {
+  width: 15px;
+  margin-right: 9px;
+}
+.edit-product-like {
+  border: transparent;
+  background: transparent;
+}
+.edit-product-like span {
+  font-size: 14px;
+  color: #334;
+  padding-right: 15px;
+}
+.edit-product-like img {
+  width: 19px;
+}
+
+.edit-product-monument:hover {
+  color: #000;
+}
+
+.edit-profile-modal .modal-dialog {
+  max-width: 60% !important;
+}
+
+.edit-profile-modal .modal-content {
+  margin-top: 45px !important;
+}
+
+.edit-profile-modal .product-profile-h {
+  font-size: 16px;
+}
+
+.edit-profile-modal .product-profile-ab-a {
+  width: 50%;
+  height: 118px;
+  margin: 24px auto;
+  margin-bottom: 12px;
+}
+
+.edit-profile-modal .product-profile-ab-b {
+  width: 80%;
+  margin: auto;
+}
+
+.edit-profile-modal .product-profile-h {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 28px;
+  padding-right: 19px;
+}
+
+.edit-profile-modal .product-profile-h > span {
+  cursor: pointer;
+}

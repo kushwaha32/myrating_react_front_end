@@ -1,0 +1,31 @@
+.attachment-show-img {
+  margin: 20px 0;
+  margin-top: 25px;
+}
+.attachment-show-img .lg-react-element {
+  display: flex;
+  align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+.attachment-show-img .rating-main-full-allimg {
+  background: #fff;
+  width: 92%;
+  box-shadow: 0px 3px 6px #00000094;
+}
+
+.attachment-show-img .lg-react-element img {
+  width: 50px;
+  display: block;
+  border-radius: 2px;
+  transition: transform 0.2s;
+  border: 1px solid #33333347;
+}
+.attachment-show-img .lg-react-element img:first-child {
+  height: 100%;
+}
+.attachment-show-img .lg-react-element img:hover {
+  filter: opacity(0.9);
+  transform: scale(2);
+}

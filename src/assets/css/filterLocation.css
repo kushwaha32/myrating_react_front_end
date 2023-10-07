@@ -1,0 +1,121 @@
+.near-place {
+  padding: 6px 23px 12px 23px;
+}
+
+.near-place-a {
+  position: relative;
+}
+
+.near-place-a > button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: transparent;
+  left: 7px;
+}
+.near-main {
+  margin-top: 6px;
+  left: -26px !important;
+  box-shadow: 0px 3px 1px 0px rgb(13, 46, 104, 0.75);
+    -webkit-box-shadow: 0px 3px 8px 1px rgb(13, 46, 104, 0.75);
+    -moz-box-shadow: 0px 3px 1px 0px rgb(13, 46, 104, 0.75);
+}
+
+.near-place-a > button > img {
+  width: 19px;
+}
+
+.place-explore .near-place-a > input {
+  width: 100%;
+}
+.place-explore.near-place {
+  padding-top: 13px;
+}
+.near-place-a > input {
+  outline: none;
+  border: 1px solid #ddd;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  width: 237px;
+  padding-left: 47px;
+  padding-right: 17px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  height: 38px;
+}
+
+.near-place-a > input:hover,
+.near-place-a > input:active,
+.near-place-a > input:focus {
+  border: 1px solid #ddd !important;
+}
+.near-place-b {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+.location-number-a {
+  width: 44px !important;
+  position: relative;
+  margin: 0;
+  border: 1px solid #ddd !important;
+  padding: 0px 63px 0 20px !important;
+  text-align: center;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  font-size: 13px;
+  line-height: 12px;
+  height: 28px;
+  background: #fff;
+}
+
+.location-number-a > span {
+  margin-right: 11px;
+}
+
+.location-number-b {
+  min-width: 82px;
+  padding: 0;
+}
+
+.location-number-b .dropdown-item {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.location-number-c {
+  display: inline-block;
+  margin-right: 9px;
+}
+
+.near-place-check {
+  display: flex;
+  align-items: center;
+}
+.near-place-check > label {
+  font-size: 12px;
+  margin-left: 10px;
+  color: #1592e6;
+}
+
+.recent-history > h5 {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  margin-top: 21px;
+}
+.recent-history > p {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #1592e6;
+    margin-bottom: -8px;
+ }
+
+.recent-history > p > img{
+   width: 19px;
+   margin-right: 12px;
+}

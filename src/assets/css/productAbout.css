@@ -1,0 +1,33 @@
+
+.product-about{
+    padding: 30px 22px;
+}
+
+.product-about-aa{
+    font-size: 20px;
+}
+.product-about-ab{
+    font-size: 13px;
+    text-align: justify;
+}
+
+.product-about img{
+  width: 100%;
+}
+.product-about-ba{
+    flex-basis: 100%;
+    display: grid;
+    grid-row-gap: 8px;
+    grid-column-gap: 8px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 120px;
+    overflow: hidden;
+    padding: 12px 12px;
+}
+
+.product-about-bab img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #7070708a;
+
+}

@@ -1,0 +1,18 @@
+.header-left ul li .brand-img {
+  height: 40px;
+}
+.header-left ul li .fa-home:before {
+  font-size: 31px;
+}
+.header-left ul li i {
+  font-size: 20px;
+}
+.header-left ul .home {
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-left ul li .fa-home:before {
+    font-size: 23px;
+  }
+}

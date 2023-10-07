@@ -1,0 +1,133 @@
+.crop-img-model .modal-title {
+  font-size: 19px;
+}
+
+.crop-img-model .modal-dialog {
+  max-width: 43% !important;
+}
+
+.image-croper-center {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.crop-img-model {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.crop-img-model img {
+  width: 100%;
+  object-fit: contain;
+}
+.crop-img-model .modal-body {
+  border-radius: 0px !important;
+}
+.slider_inc_icon {
+  width: 16px !important;
+}
+.slider-zoom-crop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.slider-zoom-crop input {
+  margin: 0 31px;
+  width: 80%;
+}
+.slider_inc_icon {
+  width: 30px !important;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  height: 30px;
+  text-align: center;
+}
+.slider_inc_icon img {
+  width: 16px;
+}
+
+.img-m-main {
+  display: flex;
+  align-items: center;
+  flex-grow: 12px;
+  padding: 7px;
+}
+.img-m-con {
+  width: 141px;
+  margin-right: 6px;
+  height: 72px;
+}
+.img-m-con img {
+  width: 100%;
+  height: 100%;
+}
+/* .crop-img-model .reactEasyCrop_CropAreaGrid{
+    width: 300px !important;
+    height: 300px !important;
+    color: rgba(255, 255, 255, 0.5);
+} */
+
+@media only screen and (max-width: 768px) {
+  .crop-img-model .modal-dialog {
+    max-width: 100% !important;
+    margin: 0;
+  }
+  .crop-img-model .modal-content {
+    margin-top: 0 !important;
+    height: 100vh;
+  }
+  .crop-img-model .modal-header {
+    background: #000;
+    color: transparent;
+    display: none;
+  }
+  .crop-img-model .modal-title {
+    font-size: 19px;
+    color: transparent;
+  }
+  .crop-img-model .modal-body {
+    padding: 0;
+    background: #000;
+  }
+  .crop-img-model .modal-footer {
+    background: #000;
+    border-top: none;
+    display: block;
+    text-align: center;
+  }
+  .crop-img-model .btn-s-main .btn-white {
+    background: #000;
+    color: #fff;
+    border-color: #707070;
+    width: 71px;
+    height: 71px;
+    border-radius: 50%;
+  }
+  .slider-zoom-crop {
+    margin-top: 63px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .crop-img-model .slider_inc_icon {
+    display: none;
+  }
+  .preview-circle {
+    margin: auto;
+    margin-bottom: 17px;
+  }
+  .place-holder-file.justify-content-end {
+    justify-content: start !important;
+  }
+  .preview-circle {
+    width: 122px;
+    height: 122px;
+  }
+  .mar-mai {
+    margin-top: 16px !important;
+  }
+}

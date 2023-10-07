@@ -1,0 +1,322 @@
+.list-business > .title {
+  text-align: left;
+  font-size: 19px;
+}
+.business-b-main {
+  background: transparent linear-gradient(180deg, #dbedff 0%, #ffffff 100%);
+}
+.sm-c-code {
+  width: 10%;
+}
+.list-business-navigate {
+  z-index: 99;
+  right: 13px;
+  top: -71px;
+}
+.sm-inc-input {
+  display: none;
+}
+.drop-id-business {
+  width: 100% !important;
+  background-color: #ffffff !important;
+}
+.drop-id-business:hover,
+.drop-id-business:focus,
+.drop-id-business:active {
+  background-color: #ffffff !important;
+}
+.loca-b-main {
+  min-height: 631px;
+}
+.loca-b-main input {
+  height: 34px;
+  font-size: 12px;
+}
+
+.public-private-switch {
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  opacity: 0;
+}
+
+/* contact information */
+
+.con-info-cls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.con-info-switch {
+  width: 16%;
+  text-align: right;
+}
+.add-increment {
+  width: 17%;
+}
+.con-info-input-main {
+  width: 67%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.increment-btn {
+  border: transparent;
+  background-color: transparent;
+}
+.increment-btn img {
+  width: 30px;
+}
+.decremant-btn img {
+  position: relative;
+  top: 3.4px;
+  width: 34px;
+}
+
+.valid-upopton .drop-id-veri {
+  height: 35px;
+  font-size: 14px;
+}
+
+.hours-operation.gender-chek .form-check {
+  border-radius: unset;
+  width: unset;
+  border: unset;
+  background-color: unset;
+  display: flex;
+  align-items: center;
+}
+.hours-operation.gender-chek .form-check .form-check-input {
+  width: 17px;
+  height: 17px;
+  margin-right: 13px;
+  position: relative;
+  bottom: 3px;
+}
+.hours-options .dropdown-menu {
+  max-height: 266px;
+  overflow-y: scroll;
+  font-size: 13px;
+}
+
+.pament-mode-lSt label {
+  font-size: 13px;
+}
+
+.upload-profile-bu-1 {
+  font-size: 20px;
+}
+.upload-profile-bu-2 {
+  font-size: 14px;
+}
+
+.preview-circle {
+  width: 143px;
+  height: 143px;
+  border-radius: 50%;
+  border: 1px solid #707070;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+}
+.preview-circle > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.preview-circle img {
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+}
+
+.preview-rectangle {
+  height: 148px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* mobile screen business register navigation */
+
+.list-business-sm-nav {
+  position: relative;
+  margin-bottom: 24px;
+  height: 50.1px;
+  font-size: 23px;
+  width: 100%;
+  overflow: hidden;
+}
+.list-business-sm-nav > li {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  background: #dddddd;
+  line-height: 50px;
+  box-shadow: 0px 1px 5px 0.1px #00000042;
+  padding-left: 15px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.list-business-sm-nav > li:nth-child(2) {
+  left: calc(var(--register-step-position) * 1%);
+  z-index: 2;
+}
+.list-business-sm-nav > li:nth-child(3) {
+  left: calc(var(--register-step-position) * 2%);
+  z-index: 3;
+}
+.list-business-sm-nav > li:nth-child(4) {
+  left: calc(var(--register-step-position) * 3%);
+  z-index: 4;
+}
+.list-business-sm-nav > li:nth-child(5) {
+  left: calc(var(--register-step-position) * 4%);
+  z-index: 5;
+}
+.list-business-sm-nav > li:nth-child(6) {
+  left: calc(var(--register-step-position) * 5%);
+  z-index: 6;
+}
+.list-business-sm-nav > li:nth-child(7) {
+  left: calc(var(--register-step-position) * 6%);
+  z-index: 7;
+}
+.list-business-sm-nav > li:nth-child(8) {
+  left: calc(var(--register-step-position) * 7%);
+  z-index: 8;
+}
+.list-business-sm-nav > li:nth-child(9) {
+  left: calc(var(--register-step-position) * 8%);
+  z-index: 9;
+}
+.list-business-sm-nav > li.active {
+  background: #001840;
+  color: #aaffb0;
+}
+.list-business-sm-nav > li.previous {
+  background: #aaffb0;
+}
+.bus-captcha {
+  width: 203px;
+}
+.business-captcha-t {
+  width: 30%;
+}
+.sm-auth li:nth-child(3) {
+  margin: 0 13px;
+}
+/* responsive styles */
+
+@media only screen and (max-width: 991.98px) {
+  .bus-label-sm {
+    margin-bottom: 4px;
+    text-align: left !important;
+    font-size: 13px;
+  }
+  .mail-bus-sm-l {
+    margin-top: 12px !important;
+  }
+  .t-l-sm {
+    text-align: left !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .form-control.is-valid,
+  .was-validated .form-control.b-inp-title {
+    padding-right: 0;
+  }
+  .bus-captcha {
+    width: 100%;
+  }
+  .captcha-gen > .capt > img {
+    width: 152px;
+  }
+  .business-captcha-t {
+    width: 100%;
+  }
+  .type-cm {
+    margin-top: 0 !important;
+  }
+  .list-business > .title {
+    font-size: 16px;
+  }
+  .sm-auth li:last-child {
+    margin-right: 0;
+  }
+
+  .sm-auth li:last-child > button {
+    padding-right: 0;
+    padding-left: 12px;
+  }
+  .sm-in-des .form-control {
+    padding-right: 0 !important;
+  }
+  .register-b-main.register-b-mn-verify.loca-b-main {
+    padding: 20px 12px;
+    padding-bottom: 108px;
+    min-height: 413px;
+  }
+  .para-mai-w.register-b-main.register-b-mn-verify.loca-b-main p {
+    width: 100% !important;
+  }
+
+  .inc-input-sm > .add-increment {
+    width: 0px;
+    display: none;
+  }
+  .sm-inc-input > .add-increment {
+    width: 44%;
+    display: flex;
+  }
+  .sm-inc-input {
+    display: block;
+  }
+  .sm-inc-input label {
+    margin-bottom: 12px;
+  }
+  .con-info-switch {
+    width: 29%;
+  }
+  .la-mr-bt {
+    margin-bottom: 8px;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .list-business > .title {
+    font-size: 14px;
+  }
+  .register-b-main input[type="text"] {
+    font-size: 10px !important;
+  }
+  .sm-c-code {
+    width: 12%;
+  }
+  .decremant-btn img,
+  .increment-btn img {
+    width: 24px;
+  }
+  .increment-btn > img {
+    position: relative;
+    top: 2px;
+  }
+}
+@media only screen and (max-width: 280px) {
+  .con-mobile-n > div > input[type="text"] {
+    width: 27px !important;
+    height: 27px;
+    font-size: 15px !important;
+  }
+  .register-b-mn-verify {
+    min-height: 375px;
+  }
+  .bel-svg {
+    width: 14px;
+  }
+  .devider-flat {
+    font-size: 11px;
+  }
+}

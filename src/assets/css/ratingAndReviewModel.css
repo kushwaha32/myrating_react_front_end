@@ -1,0 +1,215 @@
+.rr-model {
+  padding: 12px 15px;
+  position: relative;
+}
+.rr-model-a .rr-model-ab {
+  margin-left: 0 !important;
+}
+.rr-model-b {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.rr-model-c {
+  background: #dbedff;
+  border-radius: 14px;
+  opacity: 1;
+  margin-top: 15px;
+  min-height: 50px;
+  padding: 10px 20px;
+}
+.rr-model-c .product-d-menu-aa-a > img {
+  width: 55px;
+  height: 55px;
+}
+.rr-model-c .product-d-menu-aa-ba {
+  font-size: 16px;
+}
+.rr-model-c .product-d-menu-aa-b span {
+  font-size: 14px;
+}
+.model-width .modal-dialog {
+  max-width: 41%;
+}
+.model-width .rr-model {
+  padding: 12px 28px;
+}
+.rr-model-ca {
+  margin-top: 15px;
+}
+.active-rating {
+  display: flex;
+  align-items: center;
+}
+.rr-model-caa {
+  font-size: 17px;
+  margin-right: 60px;
+  display: inline-block;
+  margin-bottom: 0;
+  color: #010221;
+}
+.rr-model-ca .react-stars > span {
+  margin-right: 12px;
+}
+.rr-model-cab {
+  display: inline-block;
+  text-transform: capitalize;
+}
+.review-box-pro {
+  letter-spacing: 0.005em;
+  border: 0.5px solid rgb(221, 221, 221);
+  font-weight: normal;
+  font-size: 15px;
+  color: #6e6e73 !important;
+  font-family: arial;
+}
+
+.review-images {
+  width: 100%;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(221, 221, 221);
+  background: #fff;
+  border-radius: 4px;
+  padding: 12px 6px;
+}
+.review-images span {
+  width: 14%;
+  border: 1px solid #dddd;
+  border-radius: 3px;
+  margin-right: 3px;
+  position: relative;
+  height: 55px;
+}
+.review-images span > i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #333;
+  font-size: 11px;
+}
+.review-images img {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+}
+.rr-model-cab button {
+  border-radius: 30px;
+  border: 1px solid #707070;
+  padding: 4px 13px 4px 24px;
+  font-size: 13px;
+  background: transparent !important;
+  font-weight: bold;
+  color: #1592e6 !important;
+  width: 148px;
+  text-align: left;
+  text-transform: capitalize;
+}
+.rr-model-cab button:hover {
+  background: transparent !important;
+  color: #1592e6;
+}
+.rr-model-cab .dropdown-menu {
+  padding: 0;
+  border-radius: 0px;
+  box-shadow: 0px 3px 6px #000000;
+}
+.rr-model-cab .dropdown-menu .form-check {
+  font-size: 13px;
+  font-weight: bold;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 0;
+}
+.rr-model-cab .dropdown-menu .form-check-input {
+  width: 10px;
+  height: 10px;
+  margin-left: -14px;
+  margin-right: 8px;
+}
+.rr-model-cab .dropdown-toggle::after {
+  position: absolute;
+  right: 14px;
+  font-size: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.rr-model-color {
+  color: #1592e6;
+}
+.rr-model-cab .dropdown-menu .form-check .form-check-label:hover {
+  color: #1592e6;
+  cursor: pointer;
+}
+
+.rrr-model-c {
+  display: inline-block;
+}
+.rrr-model-c > img {
+  margin-right: 7px;
+  width: 30px;
+}
+.submited-rating .category-product-new-rating-a > i:last-child {
+  margin-right: 31px;
+}
+
+.submited-rating .category-product-new-rating-a .pointed-star::after {
+  font-size: 29px;
+  text-shadow: 0px 5px 4px #0000000f;
+}
+
+.review-update-attachment {
+  border: 1px solid #ddd;
+  background: #fff;
+  margin-left: 62px;
+  width: 46%;
+  padding: 4px 12px;
+  border-radius: 5px;
+}
+.review-update-attachment span {
+  width: 53px;
+  margin-right: 12px;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+}
+.review-update-attachment span i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+.review-update-attachment span img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .model-width .modal-dialog {
+    max-width: 100%;
+  }
+  .review-update-attachment span {
+    width: 40px;
+  }
+  .model-width .rr-model {
+    padding: 12px 16px;
+  }
+  .rr-model-c {
+    border-radius: 10px;
+  }
+  .rr-model-caa {
+    font-size: 12px;
+    margin-right: 35px;
+  }
+  .rr-model-ca .react-stars > span {
+    margin-right: 12px;
+    font-size: 21px !important;
+  }
+  .rr-model-c {
+    padding: 10px 9px;
+  }
+}
