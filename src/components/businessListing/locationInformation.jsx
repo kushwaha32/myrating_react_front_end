@@ -71,7 +71,7 @@ const LocationInformation = () => {
           lng,
           lat,
         };
-        console.log(data);
+
         const res = await updateLocationInfo(data).unwrap();
         if (res.status === "success") {
           toast.success("Location information updated successfully!");

@@ -25,7 +25,7 @@ const initialValues = {
 const CreateProductProfile = () => {
   const [editorData, setEditorData] = useState("");
   const [profileImg, setProfileImg] = useState();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   // get the mutation
   const [createProduct, { isLoading }] = useCreateProductMutation();
@@ -60,7 +60,7 @@ const CreateProductProfile = () => {
     validationSchema: createProductSchema,
     onSubmit: async (value) => {
       try {
-        setLoading(true)
+        setLoading(true);
         const resUrl = await getSecureUrl().unwrap();
         if (resUrl.status === "success") {
           const secureUrl = resUrl.uploadUrl;
@@ -93,15 +93,15 @@ const CreateProductProfile = () => {
             // set the product into localstorage
             dispatch(setProducts(res.data.products));
             toast.success(res.message);
-            setLoading(false)
+            setLoading(false);
           } else {
             toast.error(res.message);
-            setLoading(false)
+            setLoading(false);
           }
         }
       } catch (error) {
         toast.error(errors.message);
-        setLoading(false)
+        setLoading(false);
       }
     },
   });
@@ -118,113 +118,8 @@ const CreateProductProfile = () => {
     setFieldValue("googleLocation", JSON.stringify(geoLocation));
   };
   return (
-    <section className="product-profile">
-      <h2 className="product-profile-h">Create Profile</h2>
-      <form onSubmit={handleSubmit} className="product-profile-a">
-        <section className="product-profile-ab business">
-          <ImgWithSideCaption
-            img={userInfo?.user?.brandProfile?.brandImage || "man.png"}
-            title={userInfo?.user?.brandProfile?.brandName}
-          />
-          <div
-            className="product-profile-ab-a"
-            style={profileBgImg(profileImg)}
-          ></div>
-          {/* error handling of image */}
-          {errors.image && touched.image ? (
-            <div className="field-eror">{errors.image}</div>
-          ) : null}
-
-          <figure className="product-profile-ab-b text-center">
-            <span className="addProfile product-profile-ab-ba">
-              <input type="file" name="image" onChange={handleImage} />
-              Add Photo
-            </span>
-            <img src={plus} className="plus" alt="plus" />
-          </figure>
-        </section>
-        <section className="product-profile-ac">
-          {/* profile name */}
-          <div className="form-group">
-            <label htmlFor="profileName">Profile Name</label>
-            <input
-              type="text"
-              className={`form-control ${
-                errors.profileName && touched.profileName ? "is-invalid" : ""
-              }`}
-              id="profileName"
-              value={values.profileName}
-              name="profileName"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-          </div>
-          {/* error handling of image */}
-          {errors.profileName && touched.profileName ? (
-            <div className="field-eror">{errors.profileName}</div>
-          ) : null}
-          {/* profile category */}
-          <div className="form-group mt-4">
-            <label htmlFor="profileCategory">Profile Category </label>
-            <select
-              name="profileCategory"
-              className={`form-select select-profession text-capitalize ${
-                errors.profileCategory && touched.profileCategory
-                  ? "is-invalid"
-                  : ""
-              }`}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              id="profileCategory"
-            >
-              <option value="">select</option>
-              {userInfo?.user?.brandProfile?.industry?.subCategory?.map(
-                (curCat) => (
-                  <>
-                    <option
-                      value={curCat?._id}
-                      className="text-capitalize"
-                      key={curCat?._id}
-                    >
-                      {curCat?.name}
-                    </option>
-                  </>
-                )
-              )}
-            </select>
-          </div>
-          {errors.profileCategory && touched.profileCategory ? (
-            <div className="field-eror">{errors.profileCategory}</div>
-          ) : null}
-          {/* location */}
-          {/* Business current location */}
-          <GoogleAutoComplete
-            handleLocationSelect={handleLocationSelect}
-            errors={errors}
-            handleBlur={handleBlur}
-            handleChange={handleChange}
-            touched={touched}
-          />
-
-          {/* editor */}
-          <div className="form-group loc-profile mt-4">
-            <label htmlFor="">Bio</label>
-            <ProductEditor
-              setEditorData={setEditorData}
-              editorData={editorData}
-            />
-          </div>
-          <div className="mt-3 text-center">
-            <button
-              className={`btn btn-form ${loading && "disabled"}`}
-              type="submit"
-              style={buttonStyle}
-            >
-              {loading ? "...loading" : "Submit"}
-            </button>
-          </div>
-        </section>
-      </form>
+    <section className="business-console-body business-console-listed-pro">
+      <h3 className="my-3 bcb-title">Listed profiles</h3>
     </section>
   );
 };
@@ -238,3 +133,115 @@ const buttonStyle = {
 };
 
 export default CreateProductProfile;
+
+//  <div className="bcb-profiles-data">
+//         <section className="product-profile">
+//           <form onSubmit={handleSubmit} className="product-profile-a">
+//             <section className="product-profile-ab business">
+//               <ImgWithSideCaption
+//                 img={userInfo?.user?.brandProfile?.brandImage || "man.png"}
+//                 title={userInfo?.user?.brandProfile?.brandName}
+//               />
+//               <div
+//                 className="product-profile-ab-a"
+//                 style={profileBgImg(profileImg)}
+//               ></div>
+//               {/* error handling of image */}
+//               {errors.image && touched.image ? (
+//                 <div className="field-eror">{errors.image}</div>
+//               ) : null}
+
+//               <figure className="product-profile-ab-b text-center">
+//                 <span className="addProfile product-profile-ab-ba">
+//                   <input type="file" name="image" onChange={handleImage} />
+//                   Add Photo
+//                 </span>
+//                 <img src={plus} className="plus" alt="plus" />
+//               </figure>
+//             </section>
+//             <section className="product-profile-ac">
+//               {/* profile name */}
+//               <div className="form-group">
+//                 <label htmlFor="profileName">Profile Name</label>
+//                 <input
+//                   type="text"
+//                   className={`form-control ${
+//                     errors.profileName && touched.profileName
+//                       ? "is-invalid"
+//                       : ""
+//                   }`}
+//                   id="profileName"
+//                   value={values.profileName}
+//                   name="profileName"
+//                   onChange={handleChange}
+//                   onBlur={handleBlur}
+//                 />
+//               </div>
+//               {/* error handling of image */}
+//               {errors.profileName && touched.profileName ? (
+//                 <div className="field-eror">{errors.profileName}</div>
+//               ) : null}
+//               {/* profile category */}
+//               <div className="form-group mt-4">
+//                 <label htmlFor="profileCategory">Profile Category </label>
+//                 <select
+//                   name="profileCategory"
+//                   className={`form-select select-profession text-capitalize ${
+//                     errors.profileCategory && touched.profileCategory
+//                       ? "is-invalid"
+//                       : ""
+//                   }`}
+//                   onChange={handleChange}
+//                   onBlur={handleBlur}
+//                   id="profileCategory"
+//                 >
+//                   <option value="">select</option>
+//                   {userInfo?.user?.brandProfile?.industry?.subCategory?.map(
+//                     (curCat) => (
+//                       <>
+//                         <option
+//                           value={curCat?._id}
+//                           className="text-capitalize"
+//                           key={curCat?._id}
+//                         >
+//                           {curCat?.name}
+//                         </option>
+//                       </>
+//                     )
+//                   )}
+//                 </select>
+//               </div>
+//               {errors.profileCategory && touched.profileCategory ? (
+//                 <div className="field-eror">{errors.profileCategory}</div>
+//               ) : null}
+//               {/* location */}
+//               {/* Business current location */}
+//               <GoogleAutoComplete
+//                 handleLocationSelect={handleLocationSelect}
+//                 errors={errors}
+//                 handleBlur={handleBlur}
+//                 handleChange={handleChange}
+//                 touched={touched}
+//               />
+
+//               {/* editor */}
+//               <div className="form-group loc-profile mt-4">
+//                 <label htmlFor="">Bio</label>
+//                 <ProductEditor
+//                   setEditorData={setEditorData}
+//                   editorData={editorData}
+//                 />
+//               </div>
+//               <div className="mt-3 text-center">
+//                 <button
+//                   className={`btn btn-form ${loading && "disabled"}`}
+//                   type="submit"
+//                   style={buttonStyle}
+//                 >
+//                   {loading ? "...loading" : "Submit"}
+//                 </button>
+//               </div>
+//             </section>
+//           </form>
+//         </section>
+//       </div>

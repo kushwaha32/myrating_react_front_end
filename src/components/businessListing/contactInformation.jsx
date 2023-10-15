@@ -1,15 +1,10 @@
 import { useFormik } from "formik";
-
 import { useState } from "react";
 import PulseLoader from "react-spinners/PulseLoader";
 import navigatePre from "../../img/navigate-pre.png";
 import useBusinessPreviousSteps from "../../utils/ownHooks/useBusinessPreviousSteps";
 import { useNavigate } from "react-router-dom";
-import locationInformationSchema from "../../schemaValidation/locationInformationSchema";
 import ToggledSwitch from "../ToggledSwitch";
-import plusImg from "../../img/plus-increment.png";
-import negativeImg from "../../img/minus-decrement.png";
-import { useToast } from "react-toastify";
 import { contactInfoValidationSchema } from "../../schemaValidation/contactInfoValidationSchema";
 import { useEffect } from "react";
 import { useRef } from "react";

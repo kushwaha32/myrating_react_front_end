@@ -9,6 +9,8 @@ import useHandleImage from "../../utils/ownHooks/useHandleImage";
 import useGetImageSecureUrl from "../../utils/ownHooks/useGetImageScureUrl";
 import DocumentVerification from "./DocumentVerification";
 import { IsTabletOrLess } from "../../utils/mediaScreens";
+import { useUpdateBrandSubmitVariMutation } from "../../slices/usersApiSlice";
+import { toast } from "react-toastify";
 
 const SubmitForBusinessVerification = () => {
   const [isLoading, setIsLoading] = useState("");
@@ -35,10 +37,16 @@ const SubmitForBusinessVerification = () => {
   ////////////////////////////////////////////////////////////////////////////
 
   const [initialValues, setInitialValues] = useState({
-    image: "",
+    businessDocImg: "",
+    idOfAdminImg: "",
     documentType: "",
     idRepresentative: "",
   });
+
+  /////////////////////////////////////////////////////////////////////////////
+  ///////////------------- update submit verify mutation --------------///////////////
+  ////////////////////////////////////////////////////////////////////////////
+  const [submitVerify] = useUpdateBrandSubmitVariMutation();
 
   /////////////////////////////////////////////////////////////////////////////////////
   /////--- Handle and upload image to s3 bucket in update to user profile ---/////////
@@ -65,11 +73,25 @@ const SubmitForBusinessVerification = () => {
     onSubmit: async (values) => {
       try {
         setIsLoading(true);
-        setTimeout(() => {
+        const idAdminImgUrl = await handleSecureUrl(values.idOfAdminImg);
+        const idOfDocImgUrl = await handleSecureUrl(values.businessDocImg);
+        const data = {
+          businessDoc: {
+            type: values.documentType,
+            img: idOfDocImgUrl || "",
+          },
+          idOfAdmin: {
+            type: values.idRepresentative,
+            img: idAdminImgUrl || "",
+          },
+        };
+        const res = await submitVerify(data).unwrap();
+        if (res.status === "success") {
           handlePreviousStep("submit-for-verification");
+          toast.success("Submited for verify!");
           navigate("/list-your-business/submit-for-verification-confirm");
           setIsLoading(false);
-        }, 300);
+        }
       } catch (error) {
         console.log(error);
         setIsLoading(false);
@@ -120,6 +142,7 @@ const SubmitForBusinessVerification = () => {
             errors={errors}
             verify={businessDoc}
             fieldSet="documentType"
+            imgSetField="businessDocImg"
           />
           <label className="ms-2 mt-5 sum-v-lb">
             ID of Admin/Representative/Owner
@@ -130,6 +153,7 @@ const SubmitForBusinessVerification = () => {
             errors={errors}
             verify={idRepresentative}
             fieldSet="idRepresentative"
+            imgSetField="idOfAdminImg"
           />
           <div className="btn-s-main position-absolute btn-otp-s-main">
             <button

@@ -3,7 +3,6 @@ import { Outlet, useLocation } from "react-router-dom";
 import manImg from "../img/business-profile.png";
 import map from "../img/map-product.png";
 import webLink from "../img/web-link.png";
-import akImg from "../img/akbar-tomb.jpg";
 import feedback from "../img/feedback.png";
 import "../assets/css/user.css";
 import ShadowLayout from "./ShadowLayout";
@@ -15,11 +14,6 @@ import PageHelmetOg from "./pageHelmetForOg";
 import StarRatingProductMain from "./StarRatingProductMain";
 import useFormatNumbersInMAndK from "../utils/ownHooks/useFormatNumbersInMandK";
 import { useSelector } from "react-redux";
-import {
-  useHandleCreateLikes,
-  useHandleDeleteLikes,
-  useHandleGetLikes,
-} from "../utils/helperFunction/LikesHelperFunctions";
 import { PulseLoader } from "react-spinners";
 import useBrandAvgRating from "../utils/ownHooks/useBrandAvgRating";
 import {
@@ -27,6 +21,7 @@ import {
   useHandleDeleteBrandLikes,
   useHandleGetBrandLikes,
 } from "../utils/helperFunction/brandLikesHelperFunction";
+import RangeOfOpenDays from "./rangeOfOpenDays";
 
 const ThreeDotsShareAndInterest = lazy(() =>
   import("./threeDotsShareAndInterest")
@@ -36,10 +31,6 @@ const ProductImageGallery = lazy(() => import("./ProductImageGallery"));
 const TopBrands = () => {
   const { brandAvgRating } = useSelector((state) => state?.brandAvgRating);
   const sAvgRating = brandAvgRating?.[0];
-
-  const [text, setText] = useState(
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugit aliquid perferendis excepturi necessitatibus similique id numquam omnis. Repudiandae pariatur ullam facilis illo quaerat repellendus quo? Est dolorum porro deserunt consequuntur tempora facilis repudiandae nam totam magnam at maxime esse placeat voluptatibus harum, delectus laborum, dolores ut? Laudantium, minima unde!"
-  );
 
   const [showLess, setShowLess] = useState(true);
 
@@ -138,6 +129,8 @@ const TopBrands = () => {
 
   return (
     <>
+      {console.log(currentBrand)}
+
       <PageHelmetOg currentBrand={currentBrand} />
       <section className="product-d-menu text-capitalize user-menu business position-relative">
         <ShadowLayout>
@@ -146,7 +139,7 @@ const TopBrands = () => {
             title={currentBrand?.brandName}
           >
             <span className="user-menu-a text-capitalize">
-              {currentBrand?.registeredAs?.name}
+              {currentBrand?.industry?.name}
             </span>
           </ImgWithSideCaption>
         </ShadowLayout>
@@ -160,7 +153,7 @@ const TopBrands = () => {
         {/* //////////////////////////////////////////////////////////////////////// */}
         {/* //////////////////----------- Image Gallery -----------///////////////// */}
         {/* //////////////////////////////////////////////////////////////////////// */}
-        <ProductImageGallery />
+        <ProductImageGallery images={currentBrand?.multiImg} />
 
         <div className="container">
           {/* ///////////////////////////////////////////////////////////////////////////// */}
@@ -254,79 +247,53 @@ const TopBrands = () => {
                 />
               </svg>
             </div>
-            <figcaption className="pro-img-lrt-b text-n-ab">Agra</figcaption>
+            <figcaption className="pro-img-lrt-b text-n-ab">
+              {currentBrand?.location?.city}
+            </figcaption>
           </figure>
 
           {/* ///////////////////////////////////////////////////////////////////////////// */}
           {/* //////////////----------- days of open and close -----------///////////////// */}
           {/* ///////////////////////////////////////////////////////////////////////////// */}
-          <figure className="pro-img-lrt">
-            <div className="pro-img-svg-w">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="21"
-                height="25"
-                viewBox="0 0 30.1 30.1"
-                style={{ transform: "translateX(-4px)" }}
-              >
-                <path
-                  id="Icon_awesome-thumbs-up"
-                  data-name="Icon awesome-thumbs-up"
-                  d="M10.847,11.86h3.311v3.311H10.847Zm4.966,0h3.311v3.311H15.813Zm4.966,0h3.311v3.311H20.779Zm-14.9,9.932H9.192V25.1H5.881Zm4.966,0h3.311V25.1H10.847Zm4.966,0h3.311V25.1H15.813Zm-4.966-4.966h3.311v3.311H10.847Zm4.966,0h3.311v3.311H15.813Zm4.966,0h3.311v3.311H20.779Zm-14.9,0H9.192v3.311H5.881Zm18.208-14.9V3.583H20.779V1.928H9.192V3.583H5.881V1.928H2.571V28.413H27.4V1.928H24.089Zm1.655,24.83H4.226V8.549H25.745Z"
-                  fill="#037ca9"
-                />
-              </svg>
-            </div>
-            <figcaption className="pro-img-lrt-b text-n-ab">
-              Open Monday to Saturday,{" "}
-              <span className="ms-2">( Sunday - Closed )</span>
-            </figcaption>
-          </figure>
-
-          {/* ///////////////////////////////////////////////////////////////////////////// */}
-          {/* //////////////----------- Timing of opening -----------///////////////// */}
-          {/* ///////////////////////////////////////////////////////////////////////////// */}
-          <figure className="pro-img-lrt">
-            <div className="pro-img-svg-w">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="23"
-                viewBox="0 0 35.1 35.1"
-                style={{ transform: "translateX(-4px)" }}
-              >
-                <path
-                  id="Icon_awesome-thumbs-up"
-                  data-name="Icon awesome-thumbs-up"
-                  d="M17.546,3A14.561,14.561,0,1,0,32.121,17.561,14.553,14.553,0,0,0,17.546,3Zm.015,26.209A11.648,11.648,0,1,1,29.209,17.561,11.645,11.645,0,0,1,17.561,29.209Zm.728-18.929H16.1v8.736L23.749,23.6l1.092-1.791-6.552-3.888Z"
-                  fill="#037ca9"
-                />
-              </svg>
-            </div>
-            <figcaption className="pro-img-lrt-b text-n-ab">
-              10 AM to 05 PM
-            </figcaption>
-          </figure>
+          {currentBrand?.hoursOfOperation &&
+          JSON.parse(currentBrand?.hoursOfOperation)?.isHoursOpenPublic ? (
+            <RangeOfOpenDays
+              operationDay={
+                JSON?.parse(currentBrand?.hoursOfOperation)?.operationDay
+              }
+            />
+          ) : (
+            ""
+          )}
 
           {/* ///////////////////////////////////////////////////////////////////////////// */}
           {/* ///////////////////----------- Website linkes -----------//////////////////// */}
           {/* ///////////////////////////////////////////////////////////////////////////// */}
-          <figure className="pro-img-lrt">
-            <div className="pro-img-svg-w">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
-                viewBox="0 0 35.1 35.1"
-                style={{ transform: "translateX(-6px)" }}
-              >
-                <image href={webLink} width="100%" height="100%" />
-              </svg>
-            </div>
-            <figcaption className="pro-img-lrt-b text-n-ab">
-              www.uptourism.com
-            </figcaption>
-          </figure>
+          {currentBrand?.websites &&
+            JSON.parse(currentBrand?.websites)?.map((currWeb) => (
+              <>
+                {currWeb?.isWbsitesPublic ? (
+                  <figure className="pro-img-lrt">
+                    <div className="pro-img-svg-w">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 35.1 35.1"
+                        style={{ transform: "translateX(-6px)" }}
+                      >
+                        <image href={webLink} width="100%" height="100%" />
+                      </svg>
+                    </div>
+                    <figcaption className="pro-img-lrt-b text-n-ab">
+                      {currWeb?.websites}
+                    </figcaption>
+                  </figure>
+                ) : (
+                  ""
+                )}
+              </>
+            ))}
 
           {/* ///////////////////////////////////////////////////////////////////////////// */}
           {/* ///////////////////----------- Contact details -----------//////////////////// */}
@@ -391,11 +358,12 @@ const TopBrands = () => {
           {/* ///////////////////////////////////////////////////////////////////////////// */}
           <div className="profile-dacription mt-3">
             <h3>Description</h3>
-            {text.length >= 150 ? (
+            {currentBrand?.description &&
+            currentBrand?.description.length >= 150 ? (
               <>
                 {showLess ? (
                   <p className="">
-                    {text.slice(0, 150)} ...{" "}
+                    {currentBrand?.description.slice(0, 150)} ...{" "}
                     <button
                       className="btn btn-white py-0"
                       onClick={() => setShowLess(false)}
@@ -405,7 +373,7 @@ const TopBrands = () => {
                   </p>
                 ) : (
                   <p className="">
-                    {text}
+                    {currentBrand?.description}
                     <button
                       className="btn btn-white py-0"
                       onClick={() => setShowLess(true)}
@@ -416,7 +384,7 @@ const TopBrands = () => {
                 )}
               </>
             ) : (
-              <p className="">{text}</p>
+              <p className="">{currentBrand?.description}</p>
             )}
           </div>
 

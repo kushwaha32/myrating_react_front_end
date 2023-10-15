@@ -2,7 +2,6 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import PulseLoader from "react-spinners/PulseLoader";
-import documentIdValidationSchema from "../../schemaValidation/DocumentIdvalidationSchema";
 import businessCompanyCategorySchema from "../../schemaValidation/businessCompanyCategorySchema";
 import useBusinessPreviousSteps from "../../utils/ownHooks/useBusinessPreviousSteps";
 import { useNavigate } from "react-router-dom";

@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import OwnerProductBluePrint from "../OwnerProductBluePrint";
 import { useLocation } from "react-router-dom";
@@ -21,24 +20,19 @@ const AllProducts = () => {
       brand_id: brandId,
     }).unwrap();
 
-
-    console.log({brand: res})
+    console.log({ brand: res });
     if (res.status === "success") {
       setProducts(res.products);
-      
     }
   };
 
   return (
     <div className="historical-monuments">
-      <h1 className="historical-monuments-a text-capitalize">
-         All Products
-      </h1>
+      <h1 className="historical-monuments-a text-capitalize">All Profiles</h1>
       {isLoading ? (
         <p className="no-products">loading...</p>
       ) : (
         <>
-          {" "}
           {products.length > 0 ? (
             <>
               {products?.map((pro) => (

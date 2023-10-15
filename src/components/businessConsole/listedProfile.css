@@ -1,0 +1,84 @@
+.bcb-create-profile {
+  background: #dbedff;
+  border-radius: 4px;
+  width: 100%;
+  border: 1px solid #7070708a;
+  padding: 13px 20px;
+  font-weight: normal;
+  color: #333;
+}
+.bcb-create-profile:hover {
+  color: #333;
+}
+.bcb-create-profile img {
+  width: 20px;
+}
+
+.bcb-profiles-data {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 33px;
+}
+.bcb-profiles-data-a {
+  width: 29%;
+}
+.bcb-profiles-data-b {
+  width: 68%;
+}
+.bab-profiles-a,
+.bcb-profiles-data-b .historical-monuments-a {
+  background: #fff;
+  padding: 7px 20px;
+  font-size: 15px;
+  margin-top: 12.5px;
+}
+.bcb-profiles-data-a .bcb-profiles-a-m {
+  margin-top: 20px;
+}
+.bab-profiles-a-active {
+  background: #d3ffc1;
+}
+.bcb-profiles-data-ba input {
+  width: 100%;
+  padding: 11px 0;
+  border: 1px solid #7070708a;
+  border-radius: 4px;
+  padding-left: 59px;
+  font-size: 17px;
+}
+.bcb-profiles-data-ba input:active,
+.bcb-profiles-data-ba input:focus,
+.bcb-profiles-data-ba input:visited,
+.bcb-profiles-data-ba input:focus-visible {
+  border: 1px solid #7070708a !important;
+  outline: none !important;
+}
+.bcb-profiles-data-b .historical-monuments-a {
+  background: #d3ffc1;
+  border-radius: 4px;
+  border: 1px solid #7070708a;
+  color: #333;
+  margin-top: 23px;
+  padding: 14px 20px;
+}
+.bcb-profiles-data-b .historical-monuments {
+  padding: 0;
+}
+
+.bcb-profiles-data-ba button {
+  background: #fff;
+  border: none;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translatey(-50%);
+}
+.bcb-profiles-data-ba button > img {
+  width: 24px;
+}
+
+.bcb-skel {
+  display: block;
+  padding: 0;
+  border: none;
+}

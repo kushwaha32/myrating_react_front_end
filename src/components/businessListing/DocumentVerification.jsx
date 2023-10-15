@@ -9,6 +9,7 @@ const DocumentVerification = ({
   errors,
   verify,
   fieldSet,
+  imgSetField,
 }) => {
   const [profileImg, setProfileImg] = useState();
   const [imageName, setImageName] = useState("");
@@ -21,7 +22,9 @@ const DocumentVerification = ({
     setFieldValue,
     setProfileImg,
     setImageName,
-    values
+    values,
+    "",
+    imgSetField
   );
   return (
     <div className="form-group mt-2">

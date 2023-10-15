@@ -9,12 +9,13 @@ import locationInformationSchema from "../../schemaValidation/locationInformatio
 import ToggledSwitch from "../ToggledSwitch";
 import plusImg from "../../img/plus-increment.png";
 import negativeImg from "../../img/minus-decrement.png";
-import { useToast } from "react-toastify";
+import { toast, useToast } from "react-toastify";
 import { contactInfoValidationSchema } from "../../schemaValidation/contactInfoValidationSchema";
 import { useEffect } from "react";
 import { useRef } from "react";
 import useHoursOptions from "../../utils/ownHooks/useHoursOptions";
 import { IsTabletOrLess } from "../../utils/mediaScreens";
+import { useUpdateBrandOtherInfoMutation } from "../../slices/usersApiSlice";
 
 const OtherInformation = () => {
   const [isLoading, setIsLoading] = useState("");
@@ -40,6 +41,10 @@ const OtherInformation = () => {
   const prevAwardCerRecognitionNumInputsRef = useRef(
     awardCerRecognitionNumInputs
   );
+  /////////////////////////////////////////////////////////////////////////////
+  ///////////------------ Update Other info mutation ----------///////////////
+  ///////////////////////////////////////////////////////////////////////////
+  const [updateOtherInfo] = useUpdateBrandOtherInfoMutation();
 
   /////////////////////////////////////////////////////////////////////////////
   ///////////----------------- Initial state ------------------///////////////
@@ -255,12 +260,13 @@ const OtherInformation = () => {
           hoursOfOperation,
           pamentModes,
         };
-
-        setTimeout(() => {
+        const res = await updateOtherInfo(data).unwrap();
+        if (res.status === "success") {
           handlePreviousStep("other-information");
-          navigate("/list-your-business/business-keywords");
           setIsLoading(false);
-        }, 500);
+          toast.success("Other Information updated successfully!");
+          navigate("/list-your-business/business-keywords");
+        }
       } catch (error) {
         console.log(error);
         setIsLoading(false);

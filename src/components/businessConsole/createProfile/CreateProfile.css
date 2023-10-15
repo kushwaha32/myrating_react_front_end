@@ -1,0 +1,73 @@
+.bc-create-profile {
+  padding: 0px 30px;
+}
+
+.bc-create-profile-main {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.bc-create-profile-main ul > li:first-child {
+  margin-top: 0;
+}
+.bc-create-profile-main ul > li {
+  margin-top: 24px;
+}
+.bc-create-profile-main ul > li > button {
+  background: #fff;
+  color: #001840d6;
+  border: 1px solid #70707073;
+  width: 220px;
+  padding-left: 17px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/*//////////////////////////////////////*/
+/*/////--- profile information ---/////*/
+/*////////////////////////////////////*/
+
+.bc-create-profile-form {
+  width: 80%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.bc-create-profile-form .register-b-main {
+  box-shadow: 0px 3px 6px #0000006e;
+  border: 0.20000000298023224px solid #70707045;
+}
+
+.bc-cprofile-form label {
+  margin-left: 0;
+  margin-bottom: 8px;
+}
+.row.bc-cprofile-form input,
+.row.bc-cprofile-form .drop-id-veri {
+  border-radius: 4px;
+  height: 40px;
+  font-size: 14px;
+  border-color: #3333334f !important;
+  text-transform: capitalize;
+  color: #21252999 !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.bc-pro-sub-btn {
+  position: absolute;
+  bottom: 37px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff !important;
+  color: #002856a3 !important;
+  border-color: #7070708f !important;
+  width: 178px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.step-active {
+  background: #d3ffc1 !important;
+}

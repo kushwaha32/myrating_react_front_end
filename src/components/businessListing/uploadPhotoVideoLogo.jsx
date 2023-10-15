@@ -9,6 +9,10 @@ import useHandleImage from "../../utils/ownHooks/useHandleImage";
 import ImageCropper from "../ImageCropper/ImageCropper";
 import useGetImageSecureUrl from "../../utils/ownHooks/useGetImageScureUrl";
 import { IsTabletOrLess } from "../../utils/mediaScreens";
+import { useUpdateBrandPhotosMutation } from "../../slices/usersApiSlice";
+import { toast } from "react-toastify";
+import { setCredentials } from "../../slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const UploadPhotoVideoLogo = () => {
   const [isLoading, setIsLoading] = useState("");
@@ -17,6 +21,8 @@ const UploadPhotoVideoLogo = () => {
   const [multipleImg, setMultipleImg] = useState([]);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.auth);
 
   /////////////////////////////////////////////////////////////////////////////
   ///////////----------------- Initial state ------------------///////////////
@@ -26,6 +32,11 @@ const UploadPhotoVideoLogo = () => {
     // description
     image: "",
   });
+
+  /////////////////////////////////////////////////////////////////////////////
+  //////////////--------- Update Brand photos mutation -------/////////////////
+  ////////////////////////////////////////////////////////////////////////////
+  const [updateBrandPhotos] = useUpdateBrandPhotosMutation();
 
   /////////////////////////////////////////////////////////////////////////////////////
   /////--- Handle and upload image to s3 bucket in update to user profile ---/////////
@@ -52,10 +63,10 @@ const UploadPhotoVideoLogo = () => {
     onSubmit: async (values) => {
       try {
         setIsLoading(true);
+        let img;
         if (profileImg) {
           let blob = await fetch(profileImg).then((b) => b.blob());
-          const img = await handleSecureUrl(blob);
-          setProfileImg(img);
+          img = await handleSecureUrl(blob);
         }
 
         const mutiImgUploadedUrl = await Promise.all(
@@ -64,13 +75,20 @@ const UploadPhotoVideoLogo = () => {
             return newImg;
           })
         );
-
-        console.log(mutiImgUploadedUrl);
-        setTimeout(() => {
+        const data = {
+          profileImg: img ? img : "",
+          multiImg: mutiImgUploadedUrl ? mutiImgUploadedUrl : [],
+        };
+        const res = await updateBrandPhotos(data).unwrap();
+        if (res.status === "success") {
+          // let user = { ...userInfo?.user };
+          // // user?.brandProfile = {...res?.data?.brandProfile};
+          // dispatch(setCredentials({ ...userInfo, user }));
           handlePreviousStep("upload-photo-video-logo");
+          toast.success("Profile updated successfully!");
           navigate("/list-your-business/submit-for-verification");
           setIsLoading(false);
-        }, 300);
+        }
       } catch (error) {
         console.log(error);
         setIsLoading(false);

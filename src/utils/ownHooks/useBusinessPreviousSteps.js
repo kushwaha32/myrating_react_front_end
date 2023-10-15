@@ -1,7 +1,8 @@
-const useBusinessPreviousSteps = () => {
+const useBusinessPreviousSteps = (passStep) => {
+  let stepHolder = passStep || "businessPreviousStep";
   const handlePreviousStep = (previous) => {
-    const steps = localStorage.getItem("businessPreviousStep")
-      ? JSON.parse(localStorage.getItem("businessPreviousStep"))
+    const steps = localStorage.getItem(stepHolder)
+      ? JSON.parse(localStorage.getItem(stepHolder))
       : [];
 
     /////////////////////////////////////////////////////////////////
@@ -10,7 +11,7 @@ const useBusinessPreviousSteps = () => {
 
     if (!steps.includes(previous)) {
       steps.push(previous);
-      localStorage.setItem("businessPreviousStep", JSON.stringify(steps));
+      localStorage.setItem(stepHolder, JSON.stringify(steps));
     }
   };
 
@@ -19,8 +20,8 @@ const useBusinessPreviousSteps = () => {
   ///////////////////////////////////////////////////////////////
 
   const removeItemsFromSteps = (previous) => {
-    const steps = localStorage.getItem("businessPreviousStep")
-      ? JSON.parse(localStorage.getItem("businessPreviousStep"))
+    const steps = localStorage.getItem(stepHolder)
+      ? JSON.parse(localStorage.getItem(stepHolder))
       : [];
 
     /////////////////////////////////////////////////////////////////
@@ -30,7 +31,7 @@ const useBusinessPreviousSteps = () => {
     if (steps.includes(previous)) {
       const index = steps.indexOf(previous);
       steps.splice(index);
-      localStorage.setItem("businessPreviousStep", JSON.stringify(steps));
+      localStorage.setItem(stepHolder, JSON.stringify(steps));
     }
   };
 
@@ -38,8 +39,8 @@ const useBusinessPreviousSteps = () => {
   ////------------ Get items from the steps -------------//////
   ///////////////////////////////////////////////////////////////
   const getPreviousSteps = () => {
-    const steps = localStorage.getItem("businessPreviousStep")
-      ? JSON.parse(localStorage.getItem("businessPreviousStep"))
+    const steps = localStorage.getItem(stepHolder)
+      ? JSON.parse(localStorage.getItem(stepHolder))
       : [];
     return steps;
   };

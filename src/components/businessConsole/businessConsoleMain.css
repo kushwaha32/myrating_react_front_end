@@ -1,0 +1,106 @@
+.busines-console-main {
+  display: flex;
+  justify-content: space-between;
+  min-height: 900px;
+  background: #dddddd;
+  font-family: inherit;
+}
+.business-console-sidebar,
+.business-console-body {
+  background: #dbedff;
+}
+/* ////////////////////////// */
+/* ////-- side bar css --/// */
+/* //////////////////////// */
+.business-console-sidebar {
+  width: 20%;
+  padding: 20px 20px;
+}
+.business-console-sidebar-a {
+  display: flex;
+  align-items: center;
+  background: #e9fee0;
+  box-shadow: 0px 1px 3px #00000096;
+  border: 1px solid #707070bf;
+  color: #333;
+  border-radius: 21px;
+  padding: 14px 26px 14px 17px;
+}
+.business-console-sidebar-active {
+  background: #d3ffc1;
+}
+.business-console-sidebar-a:hover {
+  color: #333;
+}
+.business-console-sidebar-a > span .console-profile-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 13px;
+  box-shadow: 0px 0px 2px #000000a6;
+  border: 1px solid #3333338f;
+}
+.business-console-sidebar-a p {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+.business-console-sidebar-b {
+  padding: 3px 0px;
+  border-radius: 15px;
+  box-shadow: 0px 1px 3px #00000054;
+  border: 0.5px solid #70707080;
+  margin-top: 12px;
+}
+
+.business-console-sidebar-b span {
+  width: 40px;
+  height: 40px;
+  margin-left: 4px;
+  margin-right: 20px;
+  border: none;
+  border-radius: 50%;
+  border: 1px solid #3333334f;
+  background: #c3f2f7;
+}
+.business-console-sidebar-b span > img {
+  width: 100%;
+}
+
+/* /////////////////////////////// */
+/* ////-- Profile Progress --//// */
+/* ///////////////////////////// */
+
+.profile-progress-completion {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  left: 0;
+  padding: 0 20px;
+}
+.profile-progress-completion .progress {
+  height: 12px;
+}
+.profile-progress-completion .progress-bar {
+  background: transparent linear-gradient(270deg, #ffc800 0%, #00d580 100%) 0%
+    0% no-repeat padding-box;
+}
+
+/* ///////////////////// */
+/* ////-- body css --/// */
+/* ///////////////////// */
+.business-console-body {
+  width: 79.5%;
+}
+
+/* ///////////////////// */
+/* ////-- body css --/// */
+/* ///////////////////// */
+
+.business-console-listed-pro {
+  background: #fff;
+}
+.bcb-title {
+  font-size: 23px;
+  font-weight: normal;
+}

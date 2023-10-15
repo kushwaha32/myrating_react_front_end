@@ -1,5 +1,6 @@
 import { Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
+import CommonPageLoader from "../components/commonPageLoader/commonPageLoader";
 
 // Lazy load the route components
 const ProductDetails = lazy(() => import("../screens/ProductDetails"));
@@ -25,24 +26,7 @@ const ProductRoutes = () => {
     <Route
       path="/product/:productName"
       element={
-        <Suspense
-          fallback={
-            <div
-              style={{ width: "100%", height: "100vh", position: "relative" }}
-            >
-              <p
-                style={{
-                  position: "absolute",
-                  left: "50%",
-                  top: "50%",
-                  transform: "translate(-50%, -50%)",
-                }}
-              >
-                My Ratings
-              </p>
-            </div>
-          }
-        >
+        <Suspense fallback={<CommonPageLoader />}>
           <ProductDetails />
         </Suspense>
       }
@@ -50,7 +34,7 @@ const ProductRoutes = () => {
       <Route
         path=""
         element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<CommonPageLoader />}>
             <ProductMain />
           </Suspense>
         }
@@ -58,7 +42,7 @@ const ProductRoutes = () => {
         <Route
           path=""
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<CommonPageLoader />}>
               <ProductRating />
             </Suspense>
           }
@@ -69,7 +53,7 @@ const ProductRoutes = () => {
           <Route
             index
             element={
-              <Suspense fallback={<div>loading..l</div>}>
+              <Suspense fallback={<CommonPageLoader />}>
                 <LatestRatingReviews />
               </Suspense>
             }
@@ -81,7 +65,7 @@ const ProductRoutes = () => {
           <Route
             path="review/oldest"
             element={
-              <Suspense fallback={<div>loading..l</div>}>
+              <Suspense fallback={<CommonPageLoader />}>
                 <OldestReviewRating />
               </Suspense>
             }
@@ -93,7 +77,7 @@ const ProductRoutes = () => {
           <Route
             path="review/positive"
             element={
-              <Suspense fallback={<div>loading..l</div>}>
+              <Suspense fallback={<CommonPageLoader />}>
                 <PositiveRatingReview />
               </Suspense>
             }
@@ -105,7 +89,7 @@ const ProductRoutes = () => {
           <Route
             path="review/negative"
             element={
-              <Suspense fallback={<div>loading..l</div>}>
+              <Suspense fallback={<CommonPageLoader />}>
                 <NegativeRatingReviews />
               </Suspense>
             }
@@ -115,7 +99,7 @@ const ProductRoutes = () => {
         <Route
           path="about"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<CommonPageLoader />}>
               <ProductAbout />
             </Suspense>
           }
@@ -124,7 +108,7 @@ const ProductRoutes = () => {
       <Route
         path="images"
         element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<CommonPageLoader />}>
             <AllProductImages />
           </Suspense>
         }

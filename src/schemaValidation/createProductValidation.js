@@ -18,3 +18,8 @@ export const createProductSchema = Yup.object({
         )
     ),
 });
+
+export const productInformationSchema = Yup.object({
+  productName: Yup.string().required("Product Name is required"),
+  productCategory: Yup.string().required("Product Category is required"),
+});

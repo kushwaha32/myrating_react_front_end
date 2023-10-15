@@ -1,20 +1,12 @@
 import { useFormik } from "formik";
-import Dropdown from "react-bootstrap/Dropdown";
 import { useState } from "react";
 import PulseLoader from "react-spinners/PulseLoader";
 import navigatePre from "../../img/navigate-pre.png";
 import useBusinessPreviousSteps from "../../utils/ownHooks/useBusinessPreviousSteps";
 import { useNavigate } from "react-router-dom";
-import locationInformationSchema from "../../schemaValidation/locationInformationSchema";
-import ToggledSwitch from "../ToggledSwitch";
-import plusImg from "../../img/plus-increment.png";
-import negativeImg from "../../img/minus-decrement.png";
-import { useToast } from "react-toastify";
-import { contactInfoValidationSchema } from "../../schemaValidation/contactInfoValidationSchema";
-import { useEffect } from "react";
-import { useRef } from "react";
-import useHoursOptions from "../../utils/ownHooks/useHoursOptions";
 import { IsTabletOrLess } from "../../utils/mediaScreens";
+import { useUpdateBrandKeywordsMutation } from "../../slices/usersApiSlice";
+import { toast } from "react-toastify";
 
 const BusinessKeyword = () => {
   const [isLoading, setIsLoading] = useState("");
@@ -28,6 +20,11 @@ const BusinessKeyword = () => {
     // description
     keywords: "",
   });
+
+  //////////////////////////////////////////////////////////////////////////////
+  /////---------------- update brand keywords mutation ------------------//////
+  ////////////////////////////////////////////////////////////////////////////
+  const [updateKeywords] = useUpdateBrandKeywordsMutation();
 
   /////////////////////////////////////////////////////////////////////////////
   ///////////------------- previous step handling --------------///////////////
@@ -50,11 +47,15 @@ const BusinessKeyword = () => {
       try {
         console.log(values.keywords);
         setIsLoading(true);
-        setTimeout(() => {
+        const res = await updateKeywords({
+          keywords: values.keywords,
+        }).unwrap();
+        if (res.status === "success") {
           handlePreviousStep("business-keywords");
+          toast.success("Keywors are updated successfully!");
           navigate("/list-your-business/upload-photo-video-logo");
           setIsLoading(false);
-        }, 300);
+        }
       } catch (error) {
         console.log(error);
         setIsLoading(false);

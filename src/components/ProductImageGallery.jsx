@@ -21,7 +21,7 @@ import lgFullscreen from "lightgallery/plugins/fullscreen";
 import lgShare from "lightgallery/plugins/share";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const ProductImageGallery = () => {
+const ProductImageGallery = ({ images }) => {
   const navigate = useNavigate();
   const location = useLocation().pathname;
 
@@ -31,57 +31,64 @@ const ProductImageGallery = () => {
         speed={500}
         plugins={[lgThumbnail, lgZoom, lgAutoplay, lgFullscreen, lgShare]}
       >
-        <a href={akber}>
-          <img alt="img1" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
-        <a href={akber}>
-          <img alt="img2" src={akber} />
-        </a>
+        {images ? (
+          JSON.parse(images)?.map((img) => (
+            <a href={img}>
+              <img alt="img" src={img} />
+            </a>
+          ))
+        ) : (
+          <>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+            <a href={akber}>
+              <img alt="img2" src={akber} />
+            </a>
+          </>
+        )}
       </LightGallery>
       {`${location}` !== "/product/moong-daal-chila/images" ? (
         <div

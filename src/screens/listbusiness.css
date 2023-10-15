@@ -53,6 +53,7 @@
 }
 .add-increment {
   width: 17%;
+  display: flex;
 }
 .con-info-input-main {
   width: 67%;

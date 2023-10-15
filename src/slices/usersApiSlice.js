@@ -206,7 +206,46 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-
+    //////////////////////////////////////////////////////////
+    //////////////////--- Update other Info ---//////////////
+    ////////////////////////////////////////////////////////
+    updateBrandOtherInfo: builder.mutation({
+      query: (data) => ({
+        url: `${USERS_URL}/brandProfile/update/other-information`,
+        method: "PATCH",
+        body: data,
+      }),
+    }),
+    //////////////////////////////////////////////////////////
+    //////////////////--- Update Keyowrds ---////////////////
+    ////////////////////////////////////////////////////////
+    updateBrandKeywords: builder.mutation({
+      query: (data) => ({
+        url: `${USERS_URL}/brandProfile/update/keywords`,
+        method: "PATCH",
+        body: data,
+      }),
+    }),
+    //////////////////////////////////////////////////////////
+    //////////////////--- Update photos ---////////////////
+    ////////////////////////////////////////////////////////
+    updateBrandPhotos: builder.mutation({
+      query: (data) => ({
+        url: `${USERS_URL}/brandProfile/update/photo-profile`,
+        method: "PATCH",
+        body: data,
+      }),
+    }),
+    //////////////////////////////////////////////////////////
+    /////////--- Update submit verification ---//////////////
+    ////////////////////////////////////////////////////////
+    updateBrandSubmitVari: builder.mutation({
+      query: (data) => ({
+        url: `${USERS_URL}/brandProfile/update/submit-verify`,
+        method: "PATCH",
+        body: data,
+      }),
+    }),
     ////////////////////////////////////////////////////////////////////
     /////////////--- Check user allready created password ---//////////
     //////////////////////////////////////////////////////////////////
@@ -245,4 +284,8 @@ export const {
   useCheckUserCreatedPassQuery,
   useUpdateUserPasswordMutation,
   useUpdateBrandConnectInfoMutation,
+  useUpdateBrandOtherInfoMutation,
+  useUpdateBrandKeywordsMutation,
+  useUpdateBrandPhotosMutation,
+  useUpdateBrandSubmitVariMutation,
 } = usersApiSlice;
