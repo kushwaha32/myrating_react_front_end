@@ -5,7 +5,7 @@ const ProductTopBrandBluePrint = ({ brandImg, title, brandSlug }) => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
   return (
     <figure className="top-brand item">
-       <Link to={`/top-brand/${brandSlug}`} className="top-brand-a d-block">
+      <Link to={`/top-brand/${brandSlug}`} className="top-brand-a d-block">
         <img className="top-brand-aa" src={`${brandImg}`} alt="" />
       </Link>
       <figcaption
@@ -13,9 +13,9 @@ const ProductTopBrandBluePrint = ({ brandImg, title, brandSlug }) => {
         onMouseEnter={() => setTooltipVisible(true)}
         onMouseLeave={() => setTooltipVisible(false)}
       >
-        {title.length > 17 ? (
+        {title?.length > 17 ? (
           <>
-            {`${title.slice(0, 17)} ...`}
+            {`${title?.slice(0, 17)} ...`}
             {tooltipVisible && <span class="tooltiptext">{title}</span>}
           </>
         ) : (

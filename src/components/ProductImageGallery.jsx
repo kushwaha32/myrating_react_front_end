@@ -38,65 +38,22 @@ const ProductImageGallery = ({ images }) => {
             </a>
           ))
         ) : (
-          <>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-            <a href={akber}>
-              <img alt="img2" src={akber} />
-            </a>
-          </>
+          <></>
         )}
       </LightGallery>
-      {`${location}` !== "/product/moong-daal-chila/images" ? (
-        <div
-          className="view-all-img"
-          onClick={() => navigate(`${location}/images`)}
-        >
-          <span>View all</span>
-        </div>
+      {images ? (
+        <>
+          {`${location}` !== "/product/moong-daal-chila/images" ? (
+            <div
+              className="view-all-img"
+              onClick={() => navigate(`${location}/images`)}
+            >
+              <span>View all</span>
+            </div>
+          ) : (
+            ""
+          )}
+        </>
       ) : (
         ""
       )}

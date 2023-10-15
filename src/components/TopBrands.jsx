@@ -231,26 +231,28 @@ const TopBrands = () => {
           {/* ///////////////////////////////////////////////////////////////////////////// */}
           {/* //////////////////////----------- location -----------/////////////////////// */}
           {/* ///////////////////////////////////////////////////////////////////////////// */}
-          <figure className="pro-img-lrt">
-            <div className="pro-img-svg-w">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                viewBox="0 0 26.1 25.1"
-              >
-                <image
-                  href={map}
-                  width="100%"
-                  height="100%"
-                  transform="translate(-7)"
-                />
-              </svg>
-            </div>
-            <figcaption className="pro-img-lrt-b text-n-ab">
-              {currentBrand?.location?.city}
-            </figcaption>
-          </figure>
+          {currentBrand?.location?.city && (
+            <figure className="pro-img-lrt">
+              <div className="pro-img-svg-w">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 26.1 25.1"
+                >
+                  <image
+                    href={map}
+                    width="100%"
+                    height="100%"
+                    transform="translate(-7)"
+                  />
+                </svg>
+              </div>
+              <figcaption className="pro-img-lrt-b text-n-ab">
+                {currentBrand?.location?.city}
+              </figcaption>
+            </figure>
+          )}
 
           {/* ///////////////////////////////////////////////////////////////////////////// */}
           {/* //////////////----------- days of open and close -----------///////////////// */}
@@ -298,39 +300,44 @@ const TopBrands = () => {
           {/* ///////////////////////////////////////////////////////////////////////////// */}
           {/* ///////////////////----------- Contact details -----------//////////////////// */}
           {/* ///////////////////////////////////////////////////////////////////////////// */}
-          <div className="row">
-            {/* ///////////////////////////////////////////////////////////////////////////// */}
-            {/* ///////////////////----------- Contact Number -----------//////////////////// */}
-            {/* ///////////////////////////////////////////////////////////////////////////// */}
-            <div className="col-lg-6">
-              <figure className="pro-img-lrt">
-                <div className="pro-img-svg-w">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="15.625"
-                    height="23"
-                    viewBox="0 0 15.625 25"
-                  >
-                    <path
-                      id="Icon_awesome-thumbs-up"
-                      data-name="Icon awesome-thumbs-up"
-                      d="M13.281,0H2.344A2.344,2.344,0,0,0,0,2.344V22.656A2.344,2.344,0,0,0,2.344,25H13.281a2.344,2.344,0,0,0,2.344-2.344V2.344A2.344,2.344,0,0,0,13.281,0ZM7.812,23.438a1.563,1.563,0,1,1,1.563-1.562A1.561,1.561,0,0,1,7.812,23.438Zm5.469-5.273a.588.588,0,0,1-.586.586H2.93a.588.588,0,0,1-.586-.586V2.93a.588.588,0,0,1,.586-.586H12.7a.588.588,0,0,1,.586.586Z"
-                      fill="#037ca9"
-                    />
-                  </svg>
-                </div>
-                <figcaption className="pro-img-lrt-b text-n-ab">
-                  0120-651250
-                </figcaption>
-              </figure>
-            </div>
-
-            {/* ///////////////////////////////////////////////////////////////////////////// */}
-            {/* ///////////////////----------- Contact watsup -----------//////////////////// */}
-            {/* ///////////////////////////////////////////////////////////////////////////// */}
-            <div className="col-lg-6">
-              {" "}
-              <figure className="pro-img-lrt">
+          {currentBrand?.tollFreeNo && (
+            <div className="row">
+              {/* ///////////////////////////////////////////////////////////////////////////// */}
+              {/* ///////////////////----------- Contact Number -----------//////////////////// */}
+              {/* ///////////////////////////////////////////////////////////////////////////// */}
+              {JSON?.parse(currentBrand?.tollFreeNo)?.map((currTol) => (
+                <>
+                  {currTol?.isTollFreeNoPublic ? (
+                    <>
+                      {" "}
+                      <div className="col-lg-6">
+                        <figure className="pro-img-lrt">
+                          <div className="pro-img-svg-w">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="15.625"
+                              height="23"
+                              viewBox="0 0 15.625 25"
+                            >
+                              <path
+                                id="Icon_awesome-thumbs-up"
+                                data-name="Icon awesome-thumbs-up"
+                                d="M13.281,0H2.344A2.344,2.344,0,0,0,0,2.344V22.656A2.344,2.344,0,0,0,2.344,25H13.281a2.344,2.344,0,0,0,2.344-2.344V2.344A2.344,2.344,0,0,0,13.281,0ZM7.812,23.438a1.563,1.563,0,1,1,1.563-1.562A1.561,1.561,0,0,1,7.812,23.438Zm5.469-5.273a.588.588,0,0,1-.586.586H2.93a.588.588,0,0,1-.586-.586V2.93a.588.588,0,0,1,.586-.586H12.7a.588.588,0,0,1,.586.586Z"
+                                fill="#037ca9"
+                              />
+                            </svg>
+                          </div>
+                          <figcaption className="pro-img-lrt-b text-n-ab">
+                            {currTol?.tollFreeNo}
+                          </figcaption>
+                        </figure>
+                      </div>
+                      {/* ///////////////////////////////////////////////////////////////////////////// */}
+                      {/* ///////////////////----------- Contact watsup -----------//////////////////// */}
+                      {/* ///////////////////////////////////////////////////////////////////////////// */}
+                      <div className="col-lg-6">
+                        {" "}
+                        {/* <figure className="pro-img-lrt">
                 <div className="pro-img-svg-w">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -350,9 +357,17 @@ const TopBrands = () => {
                 <figcaption className="pro-img-lrt-b text-n-ab">
                   +91 6397591095
                 </figcaption>
-              </figure>
+              </figure> */}
+                      </div>
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </>
+              ))}
             </div>
-          </div>
+          )}
+
           {/* ///////////////////////////////////////////////////////////////////////////// */}
           {/* /////////////////----------- Profile Description -----------///////////////// */}
           {/* ///////////////////////////////////////////////////////////////////////////// */}

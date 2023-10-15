@@ -2,7 +2,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 // user module imports
 import "../assets/css/productMain.css";
-import userImg from "../img/profile.png";
+import userImg from "../img/business-profile.png";
 import userp from "../img/user-p.png";
 import fav from "../img/favourite.png";
 import wallet from "../img/wallet.png";
@@ -69,7 +69,11 @@ const ProductDetails = () => {
               </>
             ) : userInfo?.user?.role === "business" ? (
               <>
-                <img className="product-d-uimg" src={userImg} alt="" />
+                <img
+                  className="product-d-uimg"
+                  src={userInfo?.user?.brandProfile?.brandImage || userImg}
+                  alt=""
+                />
                 <SidenavLink
                   icon={ratingIcon}
                   text="ratings"
