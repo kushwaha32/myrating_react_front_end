@@ -2,10 +2,10 @@ import axios from "axios";
 import { GOOGLE_API_KEY } from "../googleApiKey";
 
 const useCoordinates = () => {
-  const handleGetCoordinates = async (city, state, country) => {
+  const handleGetCoordinates = async (city, state, country, pinCode) => {
     try {
       const response = await axios.get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${city},${state},${country}&key=${GOOGLE_API_KEY}`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${city},${state},${country},${pinCode}&key=${GOOGLE_API_KEY}`
       );
 
       if (response?.data?.status === "OK") {

@@ -66,12 +66,10 @@
   background-color: transparent;
 }
 .increment-btn img {
-  width: 30px;
+  width: 18px;
 }
 .decremant-btn img {
-  position: relative;
-  top: 3.4px;
-  width: 34px;
+  width: 18.5px;
 }
 
 .valid-upopton .drop-id-veri {

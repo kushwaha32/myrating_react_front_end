@@ -71,3 +71,63 @@
 .step-active {
   background: #d3ffc1 !important;
 }
+
+.step-prev-active {
+  background: #d3ffc173 !important;
+  border: 1px solid #70707017 !important;
+}
+.pre-field-field {
+  background: #efefef;
+  font-size: 14px;
+}
+
+.location-con-sel {
+  width: 18px;
+  margin-right: 14px;
+}
+.contact-det-titlle {
+  font-size: 19px;
+}
+.label-cbosb {
+  font-size: 14px;
+}
+
+/* product profile photo / video */
+
+.product-profile-photoVd .place-holder-file-a > img {
+  width: 19px;
+}
+.product-profile-photoVd .place-holder-file-a {
+  width: 56px;
+  height: 41px;
+  background: #d3ffc1;
+  border: 1px solid #70707063;
+}
+.product-profile-photoVd .place-holder-file-b {
+  padding: 9.5px 11px;
+  width: 159px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background: #e9fee0;
+  cursor: pointer;
+  font-size: 13px;
+  border: 1px solid #70707063;
+  border-left: none;
+}
+.btn-pro-pro-con .btn-s-main > button {
+  font-size: 13px;
+  width: 196px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  font-family: monospace;
+  border-color: #70707078;
+}
+
+.thnku-para {
+  font-size: 18px;
+}
+.thnku-head {
+  font-size: 26px;
+}

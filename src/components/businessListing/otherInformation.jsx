@@ -7,8 +7,8 @@ import useBusinessPreviousSteps from "../../utils/ownHooks/useBusinessPreviousSt
 import { useNavigate } from "react-router-dom";
 import locationInformationSchema from "../../schemaValidation/locationInformationSchema";
 import ToggledSwitch from "../ToggledSwitch";
-import plusImg from "../../img/plus-increment.png";
-import negativeImg from "../../img/minus-decrement.png";
+import plusImg from "../../img/add.png";
+import negativeImg from "../../img/Minus.png";
 import { toast, useToast } from "react-toastify";
 import { contactInfoValidationSchema } from "../../schemaValidation/contactInfoValidationSchema";
 import { useEffect } from "react";

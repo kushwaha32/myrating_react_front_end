@@ -57,7 +57,8 @@ const LocationInformation = () => {
         const [lat, lng] = await handleGetCoordinates(
           value.city,
           value.state,
-          value.country
+          value.country,
+          value.pinCode
         );
         const data = {
           building: value.building,

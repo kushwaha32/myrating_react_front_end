@@ -1,19 +1,23 @@
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import { PulseLoader } from "react-spinners";
 import { useGetBrandIndustryQuery } from "../../../slices/brandIndustryApiSlice";
 import useBusinessPreviousSteps from "../../../utils/ownHooks/useBusinessPreviousSteps";
 import { productInformationSchema } from "../../../schemaValidation/createProductValidation";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const initialValues = {
   productName: "",
   productCategory: "",
+  productCategoryId: "",
 };
 
 const ProductInformation = () => {
   const [loading, setLoading] = useState(false);
   const brandIndustry = useGetBrandIndustryQuery();
+  const location = useLocation()?.pathname?.split("/");
+  const navigate = useNavigate();
 
   /////////////////////////////////////////////////////////////////////////////
   ///////////------------- previous step handling --------------//////////////
@@ -21,14 +25,54 @@ const ProductInformation = () => {
   const [handlePreviousStep, getPreviousSteps, removeItemsFromSteps] =
     useBusinessPreviousSteps("businessProductProfile");
 
-  const { values, setFieldValue, errors } = useFormik({
+  const {
+    values,
+    handleChange,
+    handleBlur,
+    setFieldValue,
+    errors,
+    touched,
+    handleSubmit,
+  } = useFormik({
     initialValues,
     validationSchema: productInformationSchema,
-    onSubmit: () => {},
+    onSubmit: (values) => {
+      setLoading(true);
+      handlePreviousStep("create-profile");
+      localStorage.setItem(
+        "newProductInfo",
+        JSON.stringify({
+          productName: values.productName,
+          productCategory: values.productCategory,
+          productCategoryId: values.productCategoryId,
+        })
+      );
+      navigate(
+        `/business/${location[2]}/listed-profile/create-profile/location-information`
+      );
+      setLoading(false);
+    },
   });
+
+  //////////////////////////////////////////////////////////////
+  ////////////////---- Set Come back value ----////////////////
+  ////////////////////////////////////////////////////////////
+  const setBackvalue = () => {
+    const preVal = localStorage.getItem("newProductInfo")
+      ? JSON.parse(localStorage.getItem("newProductInfo"))
+      : "";
+    if (preVal) {
+      setFieldValue("productName", preVal?.productName);
+      setFieldValue("productCategory", preVal?.productCategory);
+      setFieldValue("productCategoryId", preVal?.productCategoryId);
+    }
+  };
+  useEffect(() => {
+    setBackvalue();
+  }, []);
   return (
     <section className="register-b-main mb-5 para-mai-w position-relative register-b-mn-verify loca-b-main">
-      <form className="was-validated">
+      <form className="was-validated" onSubmit={handleSubmit}>
         <div className="form-group">
           <div className="row bc-cprofile-form">
             {/* ///////////////////////////////////////////////////////////// */}
@@ -40,22 +84,21 @@ const ProductInformation = () => {
               </label>
               <input
                 type="text"
-                // className={`form-control ${
-                //   errors.companyName && touched.companyName && "error-active"
-                // }`}
-                className="form-control"
+                className={`form-control ${
+                  errors.productName && touched.productName && "error-active"
+                }`}
                 placeholder="Product Name *"
-                name="companyName"
-                // value={values.companyName}
-                // onChange={handleChange}
-                // onBlur={handleBlur}
+                name="productName"
+                value={values.productName}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 required
               />
-              {/* {errors.companyName && touched.companyName && (
+              {errors.productName && touched.productName && (
                 <div className="invalid-feedback">
-                  Please provide your Company Name.
+                  Please provide your product name.
                 </div>
-              )} */}
+              )}
             </div>
           </div>
 
@@ -73,8 +116,8 @@ const ProductInformation = () => {
                   className="drop-id-veri drop-id-business"
                   id="dropdown-basic"
                 >
-                  {values.businessCategory
-                    ? values.businessCategory
+                  {values.productCategory
+                    ? values.productCategory
                     : "Select Industry"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu style={{ width: "100%" }}>
@@ -84,25 +127,22 @@ const ProductInformation = () => {
                       as="div"
                       className="text-capitalize"
                       onClick={() => {
-                        setFieldValue("businessCategory", curEl?.name);
-                        setFieldValue("businessCategoryId", curEl?._id);
+                        setFieldValue("productCategory", curEl?.name);
+                        setFieldValue("productCategoryId", curEl?._id);
                       }}
                     >
                       {curEl?.name}
                     </Dropdown.Item>
                   ))}
                 </Dropdown.Menu>
-                {errors?.businessCategory && (
-                  <div className="invalid-feedback">
-                    {errors?.businessCategory}
-                  </div>
-                )}
+                {errors?.productCategory &&
+                  touched?.productCategory &&
+                  !values.productCategory && (
+                    <div className="invalid-feedback">
+                      Please select product category
+                    </div>
+                  )}
               </Dropdown>
-              {/* {errors.companyName && touched.companyName && (
-                <div className="invalid-feedback">
-                  Please provide your Company Name.
-                </div>
-              )} */}
             </div>
           </div>
         </div>

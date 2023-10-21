@@ -59,11 +59,21 @@
 .img-m-con {
   width: 141px;
   margin-right: 6px;
-  height: 72px;
+  height: 76px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  position: relative;
 }
 .img-m-con img {
   width: 100%;
   height: 100%;
+}
+.del-sel-imgC {
+  border: none;
+  background: transparent;
+  font-size: 10px;
+  position: absolute;
+  right: 0;
 }
 /* .crop-img-model .reactEasyCrop_CropAreaGrid{
     width: 300px !important;

@@ -1,5 +1,5 @@
-import plusImg from "../../img/plus-increment.png";
-import negativeImg from "../../img/minus-decrement.png";
+import plusImg from "../../img/add.png";
+import negativeImg from "../../img/Minus.png";
 
 const IncrementAndDecrementBtn = ({ index, mainInput, setMainInput }) => {
   return (

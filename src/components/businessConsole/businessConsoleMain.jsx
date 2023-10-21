@@ -9,9 +9,31 @@ import qrCode from "../../img/qr-code-scan.png";
 import feedbackImg from "../../img/feedback-bd.jpeg";
 import sub from "../../img/subscribe.png";
 import SideBarNav from "./sidebarNav";
+import { useGetBrandProfileMutation } from "../../slices/brandProfileApiSlice";
+import { useEffect, useState } from "react";
 
 const BusinessConsoleMain = () => {
   const location = useLocation()?.pathname?.split("/");
+  const [brandPro, setBrandPro] = useState();
+
+  ////////////////////////////////////////////////////////
+  ///////////--- get Current brand mutation ---//////////
+  //////////////////////////////////////////////////////
+  const [getBrand] = useGetBrandProfileMutation();
+  const getCurrentBrand = async () => {
+    try {
+      const res = await getBrand({ userId: location[2] }).unwrap();
+
+      if (res.status === "succcess") {
+        setBrandPro(res?.data?.brandProfile);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getCurrentBrand();
+  }, []);
   return (
     <>
       <HeaderCommon />
@@ -32,7 +54,7 @@ const BusinessConsoleMain = () => {
             <span>
               <img src={dashImg} className="console-profile-img" alt="img1" />
             </span>
-            <p>Uttar Pradesh Tourism Department</p>
+            <p>{brandPro?.brandName}</p>
           </Link>
 
           {/* /////////////////////////////////////////////////////// */}

@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  // baseUrl: "http://127.0.0.1:4000",
-  baseUrl: "https://api.myratings.in",
+  baseUrl: "http://127.0.0.1:4000",
+  // baseUrl: "https://api.myratings.in",
   credentials: "include",
   prepareHeaders: (Headers, { getState }) => {
     const token = getState().auth?.userInfo?.token;

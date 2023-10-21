@@ -19,7 +19,28 @@ import ProductQrCode from "../components/ProductQrCode";
 import BusinessQrcodeMain from "../components/business/BusinessQrCodeMain";
 import { Suspense, lazy } from "react";
 import CommonPageLoader from "../components/commonPageLoader/commonPageLoader";
-import LocationInformation from "../components/businessConsole/createProfile/LocationInformation";
+import ProductPhotosAndVideos from "../components/businessConsole/createProfile/productPhotosAndVideos";
+import ThankYou from "../components/businessConsole/createProfile/thankuPage";
+
+const UpdateProfile = lazy(() =>
+  import("../components/businessConsole/updateProfile/UpdateProfile")
+);
+
+const ProfileKeywords = lazy(() =>
+  import("../components/businessConsole/createProfile/ProfileKeywords")
+);
+
+const ProductOtherInformation = lazy(() =>
+  import("../components/businessConsole/createProfile/otherInformation")
+);
+
+const ProductContactInformation = lazy(() =>
+  import("../components/businessConsole/createProfile/contactInformation")
+);
+
+const LocationInformation = lazy(() =>
+  import("../components/businessConsole/createProfile/LocationInformation")
+);
 
 const ProductInformation = lazy(() =>
   import("../components/businessConsole/createProfile/productInformation")
@@ -83,7 +104,7 @@ const BusinessRoutes = () => {
         }
       >
         {/* ///////////////////////////////////////////////////////////////////////// */}
-        {/* ////////////////----- This is the Product Information -----////////////// */}
+        {/* ////////////////----- the Product Information route -----//////////////// */}
         {/*////////////////////////////////////////////////////////////////////////// */}
         <Route
           index
@@ -95,7 +116,7 @@ const BusinessRoutes = () => {
         />
 
         {/* ///////////////////////////////////////////////////////////////////////// */}
-        {/* ////////////////----- This is the Product Location Information -----////////////// */}
+        {/* //////////////-----  Product Location Information route -----//////////// */}
         {/*////////////////////////////////////////////////////////////////////////// */}
         <Route
           path="location-information"
@@ -105,7 +126,78 @@ const BusinessRoutes = () => {
             </Suspense>
           }
         />
+
+        {/* ///////////////////////////////////////////////////////////////////////// */}
+        {/* //////////////-----  Product contact Information route -----///////////// */}
+        {/*////////////////////////////////////////////////////////////////////////// */}
+        <Route
+          path="contact-information"
+          element={
+            <Suspense fallback={<CommonPageLoader />}>
+              <ProductContactInformation />
+            </Suspense>
+          }
+        />
+
+        {/* ///////////////////////////////////////////////////////////////////////// */}
+        {/* //////////////-----  Product other Information route -----///////////// */}
+        {/*////////////////////////////////////////////////////////////////////////// */}
+        <Route
+          path="other-information"
+          element={
+            <Suspense fallback={<CommonPageLoader />}>
+              <ProductOtherInformation />
+            </Suspense>
+          }
+        />
+        {/* ///////////////////////////////////////////////////////////////////////// */}
+        {/* ////////////////////-----  Product keyword route -----/////////////////// */}
+        {/*////////////////////////////////////////////////////////////////////////// */}
+        <Route
+          path="profile-keyboards"
+          element={
+            <Suspense fallback={<CommonPageLoader />}>
+              <ProfileKeywords />
+            </Suspense>
+          }
+        />
+
+        {/* ///////////////////////////////////////////////////////////////////////// */}
+        {/* //////////////////----- Upload product photos route -----//////////////// */}
+        {/*////////////////////////////////////////////////////////////////////////// */}
+        <Route
+          path="upload-photos"
+          element={
+            <Suspense fallback={<CommonPageLoader />}>
+              <ProductPhotosAndVideos />
+            </Suspense>
+          }
+        />
+
+        {/* ////////////////////////////////////////////////////////////////////// */}
+        {/* /////////////////////////------- Thank you --------/////////////////// */}
+        {/*/////////////////////////////////////////////////////////////////////// */}
+        <Route
+          path="thank-you"
+          element={
+            <Suspense fallback={<CommonPageLoader />}>
+              <ThankYou />
+            </Suspense>
+          }
+        />
       </Route>
+
+      {/* ///////////////////////////////////////////////////////////////////////// */}
+      {/* ///////---- Create profile Outlet that appear inside the body ----/////// */}
+      {/*////////////////////////////////////////////////////////////////////////// */}
+      <Route
+        path="update-product-profile/:id"
+        element={
+          <Suspense fallback={<CommonPageLoader />}>
+            <UpdateProfile />
+          </Suspense>
+        }
+      ></Route>
 
       {/* /////////////////////////////////////////////////////////////////////////////// */}
       {/* /////////---- listed Profiles Outlet that appear inside the body ----////////// */}
